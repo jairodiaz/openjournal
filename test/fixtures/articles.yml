@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pub_med_id: MyString
+  citations_page_rank: 1.5
+
+two:
+  pub_med_id: MyString
+  citations_page_rank: 1.5
