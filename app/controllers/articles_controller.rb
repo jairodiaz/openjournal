@@ -11,15 +11,19 @@ class ArticlesController < ApplicationController
   end
 
   def display
-    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 20)
+    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 40)
+
+    children  = []
     @articles.each do |article|
-      article.size = (article.citations_page_rank * 20000).to_i
-      article.name = article.pub_med_id
+      child = {}
+      child[:size] = (article.citations_page_rank * 10000).to_i
+      child[:name] =  article.pub_med_id
+      children << child
     end
 
     response = {
       "name" => "page_rank",
-      "children" => [@articles]
+      "children" => children
     }
 
 # @articles.to_json(:methods => [:name,:size])
