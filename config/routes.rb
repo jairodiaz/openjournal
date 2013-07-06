@@ -1,6 +1,7 @@
 Openjournal::Application.routes.draw do
   resources :articles
-
+  get 'displayjson', to: 'articles#display', format: :json
+  get 'display', to: 'articles#display', format: :html
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

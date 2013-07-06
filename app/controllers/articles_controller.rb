@@ -10,6 +10,25 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def display
+    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 20)
+    @articles.each do |article|
+      article.size = (article.citations_page_rank * 20000).to_i
+      article.name = article.pub_med_id
+    end
+
+    response = {
+      "name" => "page_rank",
+      "children" => [@articles]
+    }
+
+# @articles.to_json(:methods => [:name,:size])
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: response.to_json(:methods => [:name,:size]) }
+    end
+  end
+
   # GET /articles/1
   # GET /articles/1.json
   def show
