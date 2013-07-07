@@ -4,7 +4,7 @@ require_relative './pub_med_api.rb'
 
 namespace :publication do
 
-  desc "Importing page_rank data on the server"
+  desc "Importing page_rank data on the server from a test file"
   task :import => :environment do
 
     file = "./test/fixtures/page_rank_test_data.txt" if Rails.env.development?
@@ -18,13 +18,13 @@ namespace :publication do
       article.pub_med_id = elements[0]
       article.citations_page_rank = elements[1]
       article.save
-      break if i == 100
+      break if i == 100 # This App is limited to 100 documents.
       puts "Imported record #{i}"
     end
   end
 
-  desc "Print document information"
-  task :info => :environment do
+  desc "Retrieve publication information from the PubMed online database"
+  task :retrieve_data => :environment do
 
     articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 100)
 

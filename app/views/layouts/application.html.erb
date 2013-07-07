@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Openjournal</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
 
+<body>
   <div class="container-fluid">
     <h1 style="text-align:center;">Best Open Access Publications for Bioscience</h1>
     <div class="row-fluid">
@@ -24,11 +25,7 @@
        <%= yield %>
 
     </div>
-
-
   </div>
-
-
-
 </body>
+
 </html>

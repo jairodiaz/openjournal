@@ -38,7 +38,6 @@ class ArticlesController < ApplicationController
       "children" => children
     }
 
-# @articles.to_json(:methods => [:name,:size])
     respond_to do |format|
       format.html {render :layout => false}
       format.json { render json: response.to_json(:methods => [:name,:size]) }
