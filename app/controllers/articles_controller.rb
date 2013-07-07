@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     @articles.each do |article|
       child = {}
       child[:size] = (article.citations_page_rank * 10000).to_i
-      child[:name] =  article.pub_med_id
+      child[:name] =  article.title
       children << child
     end
 
