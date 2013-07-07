@@ -1,25 +1,20 @@
-<%= form_for(@article) do |f| %>
-  <% if @article.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
-
-      <ul>
-      <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :pub_med_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :pub_med_id, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :citations_page_rank, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :citations_page_rank, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :pub_med_id %><br />
-    <%= f.text_field :pub_med_id %>
-  </div>
-  <div class="field">
-    <%= f.label :citations_page_rank %><br />
-    <%= f.text_field :citations_page_rank %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                articles_path, :class => 'btn' %>
   </div>
 <% end %>
