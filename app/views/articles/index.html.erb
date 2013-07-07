@@ -4,15 +4,19 @@
 
   <div class="span4">
 
+  <% number = 0 %>
     <table class="table table-hover table-striped">
       <tr>
+        <th style="text-align: center;" ></th>
         <th style="text-align: center;" >Number</th>
         <th style="text-align: center;" >Title</th>
         <th style="text-align: center;"> Page Rank</th>
       </tr>
 
       <% @articles.each do |article| %>
+        <% number += 1 %>
         <tr>
+          <td><%= number %></td>
           <td><%= article.pub_med_id %></td>
           <td> <a href="<%= article.url %>"><%= article.title %></a> </td>
           <td><%= number_to_human(article.citations_page_rank, precision: 2) %></td>
