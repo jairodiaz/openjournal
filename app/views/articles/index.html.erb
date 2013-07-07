@@ -18,7 +18,7 @@
         <tr>
           <td><%= number %></td>
           <td><%= article.pub_med_id %></td>
-          <td> <a href="<%= article.url %>"><%= article.title %></a> </td>
+          <td> <a href="<%= article.url %>" target="_blank"><%= article.title %></a> </td>
           <td><%= number_to_human(article.citations_page_rank, precision: 2) %></td>
         </tr>
       <% end %>
