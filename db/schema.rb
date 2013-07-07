@@ -11,13 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130706202245) do
+ActiveRecord::Schema.define(:version => 20130707094114) do
 
   create_table "articles", :force => true do |t|
     t.string   "pub_med_id"
     t.float    "citations_page_rank"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "title"
+    t.date     "date"
+    t.string   "source"
+    t.string   "url"
+    t.string   "authors"
   end
 
   add_index "articles", ["citations_page_rank"], :name => "index_articles_on_citations_page_rank"

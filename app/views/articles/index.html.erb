@@ -1,29 +1,38 @@
 <h1>Page Rank for Open Access Documents for Medicine</h1>
+<br/>
 
-<div id='svg'>
-  <iframe src="/display" style="height: 640px;width: 640px;">
-  </iframe>
-</div>
+<div class="row">
+  <div class="span8">
+    <div id='svg'>
+      <iframe src="/display" style="height: 695px;width: 695px;">
+      </iframe>
+    </div>
+  </div>
+  <div class="span4">
 
-<div id='table' style="display: block; position: absolute; top: 50px; left: 690px; width: 388px; height: 458px; z-index: 2; background-image: none; background-position: initial initial; background-repeat: initial initial;">
-  <h2> List of documents </h2>
-  <br />
-  <table>
-    <tr>
-      <th>Publication ID</th>
-      <th>Title</th>
-      <th>PageRank</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
+    <table class="table table-hover table-striped">
+      <tr>
+        <th>Publication ID</th>
+        <th>Title</th>
+        <th>PageRank</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.pub_med_id %></td>
-      <td><%= article.title %></td>
-      <td><%= article.citations_page_rank %></td>
-    </tr>
-  <% end %>
-  </table>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.pub_med_id %></td>
+          <td> <a href="<%= article.url %>"><%= article.title %></a> </td>
+          <td><%= article.citations_page_rank %></td>
+        </tr>
+      <% end %>
+    </table>
+
+ </div>
+  <!-- <div class="span4">
+    <h2>Heading</h2>
+    <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <p><a class="btn" href="#">View details &raquo;</a></p>
+  </div> -->
 </div>

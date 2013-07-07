@@ -86,7 +86,17 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+<<<<<<< HEAD
     ref (1.0.5)
+    rocket_pants (1.7.0)
+      actionpack (>= 3.0, < 5.0)
+      api_smith
+      hashie (~> 1.0)
+      moneta
+      railties (>= 3.0, < 5.0)
+      will_paginate (~> 3.0)
+=======
+>>>>>>> a4ecc7c36501faf32c192ec0bbd909b1fcf0932f
     sass (3.2.9)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
