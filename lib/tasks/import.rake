@@ -6,7 +6,7 @@ namespace :publication do
   desc "Importing page_rank data on the server"
   task :import => :environment do
 
-    file = "/Users/jairodiaz/GitHub/openjournal/page_rank_data/ranker_pagerank.txt" if Rails.env.development?
+    file = "./test/fixtures/page_rank_test_data.txt" if Rails.env.development?
     file = "http://jairodiaz.co/ranker_pagerank.txt" if Rails.env.production?
 
     i = 0
