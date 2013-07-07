@@ -28,8 +28,8 @@ end
 gem 'jquery-rails'
 
 gem 'awesome_print'
-gem 'rocket_pants'
-
+gem 'nokogiri'
+gem 'mini_portile'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
