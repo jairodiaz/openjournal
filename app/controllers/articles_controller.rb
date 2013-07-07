@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 10)
+    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 11)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,7 +23,7 @@ class ArticlesController < ApplicationController
   end
 
   def display
-    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 40)
+    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 30)
 
     children  = []
     @articles.each do |article|

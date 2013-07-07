@@ -18,7 +18,7 @@ namespace :publication do
       article.pub_med_id = elements[0]
       article.citations_page_rank = elements[1]
       article.save
-      break if i == 20
+      break if i == 100
       puts "Imported record #{i}"
     end
   end
@@ -26,7 +26,7 @@ namespace :publication do
   desc "Print document information"
   task :info => :environment do
 
-    articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 20)
+    articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 100)
 
     ids = []
     articles.inject(ids) do |result, element|

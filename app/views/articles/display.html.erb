@@ -25,13 +25,6 @@ var svg = d3.select("body").append("svg")
     .attr("height", diameter)
     .attr("class", "bubble");
 
-//var self.json_data = 'something';
-//$.getJSON("/displayjson", function(data) { alert(data); self.json_data = data } ).error(function() { alert("error"); });
-//while (jQuery.active != 0) {this.delay(1)};
-//alert(jQuery.active!=0)
-//alert(self.json_data);
-//console.log(displayjson);
-
 d3.json("displayjson", function(error, root) {
   var node = svg.selectAll(".node")
       .data(bubble.nodes(classes(root))
