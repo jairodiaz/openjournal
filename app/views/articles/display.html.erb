@@ -8,10 +8,10 @@ text {
 
 </style>
 <body>
+<%= javascript_include_tag "rainbowvis.js" %>
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="/assets/rainbowvis.js"></script>
-<script>
 
+<script>
 var diameter = 640,
     format = d3.format(",d"),
     color = d3.scale.category20c();
