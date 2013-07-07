@@ -18,6 +18,11 @@ ActiveRecord::Schema.define(:version => 20130707094114) do
     t.float    "citations_page_rank"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "title"
+    t.date     "date"
+    t.string   "source"
+    t.string   "url"
+    t.string   "auhtors"
   end
 
   add_index "articles", ["citations_page_rank"], :name => "index_articles_on_citations_page_rank"

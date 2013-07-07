@@ -27,9 +27,9 @@ class PubmedApi # a very basic Pubmed API
         doc[:url] = "http://www.ncbi.nlm.nih.gov/pubmed/#{doc[:id]}"
         doc[:db] = "pubmed"
 
-        doc[:authors] = []
+        doc[:authors] = ""
         pd.css("Item[Name=AuthorList] Item[Name=Author]").each do |author|
-          doc[:authors] << author.text
+          doc[:authors] << author.text + " "
         end
 
         documents << doc

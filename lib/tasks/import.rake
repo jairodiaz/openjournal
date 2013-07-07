@@ -17,16 +17,42 @@ namespace :publication do
       article = Article.new
       article.pub_med_id = elements[0]
       article.citations_page_rank = elements[1]
-      #article.save
-      break if i == 100
+      article.save
+      break if i == 20
       puts "Imported record #{i}"
     end
   end
 
   desc "Print document information"
   task :info => :environment do
-    ap docs = PubmedApi.find('12969510')
-    article.find_by_pub_med_id('12969510')
+
+    articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 20)
+
+    ids = []
+    articles.inject(ids) do |result, element|
+      result << element.pub_med_id
+    end
+
+    ap 'Retrieving Information for:'
+    ap ids
+
+    ap documents = PubmedApi.find(ids)
+
+    ap 'Data found:'
+
+    ap documents
+
+    ap 'Saving the information:'
+
+    documents.each do |doc|
+      article = Article.find_by_pub_med_id(doc[:id])
+      article.title = doc[:title]
+      article.date = doc[:date]
+      article.source = doc[:source]
+      article.url = doc[:url]
+      article.authors = doc[:authors]
+      article.save
+    end
 
   end
 
