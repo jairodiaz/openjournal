@@ -10,6 +10,18 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def search
+
+  end
+
+  def references
+
+  end
+
+  def results
+
+  end
+
   def display
     @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 40)
 

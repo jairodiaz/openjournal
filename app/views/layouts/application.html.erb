@@ -8,20 +8,25 @@
 </head>
 <body>
 
+
+
   <div class="container-fluid">
+    <h1 style="color:#fc9900;text-align:center;">Page Rank for Open Access Documents for Medicine</h1>
     <div class="row-fluid">
 
       <ul class="nav nav-tabs">
-        <li class="active">
-          <%= link_to 'Home', '' %>
+        <li class="<%= controller.action_name == 'index' ? 'active' : '' %>">
+            <%= link_to 'Home', '/' %>
         </li>
-        <li class="">
-          <%= link_to 'Visuals', '' %>
+        <li class="<%= controller.action_name == 'search' ? 'active' : '' %>">
+            <%= link_to 'Search', '/search' %>
         </li>
-        <li class="">
-          <%= link_to 'References', '' %>
+        <li class="<%= controller.action_name == 'references' ? 'active' : '' %>">
+          <%= link_to 'References', '/references' %>
         </li>
       </ul>
+
+
 
 
        <%= yield %>
