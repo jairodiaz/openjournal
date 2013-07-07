@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 20)
+    @articles = Article.find(:all, :order => "citations_page_rank desc", :limit => 10)
 
     respond_to do |format|
       format.html # index.html.erb
