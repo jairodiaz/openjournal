@@ -25,5 +25,4 @@ in the center and represented with bigger circles and lighter colors.
    To setup the database two rake tasks are required:
 
    rake publication:import        => Reads the test file into the database.
-   rake publication:retrieve_data => Retrieves document information (title, date, authors) for the documens
-                                     in the database.
+   rake publication:retrieve_data => Retrieves document information (title, date, authors) from PubMed.
