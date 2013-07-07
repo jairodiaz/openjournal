@@ -38,13 +38,21 @@ d3.json("displayjson", function(error, root) {
 
   node.append("circle")
       .attr("r", function(d) { return d.r; })
-      .style("fill", function(d) { return color(d.packageName); });
+      .style("fill", function(d) { return color(d.value); });
 
   node.append("text")
       .attr("dy", ".3em")
       .style("text-anchor", "middle")
       .text(function(d) { return d.className.substring(0, d.r / 3); });
 });
+
+function choose_red(value) {
+  color_red = value / 66;
+  if (color_red > 255) {
+    color_red = 255
+  }
+  d3.rgb(color_red, 0, 0)
+}
 
 // Returns a flattened hierarchy containing all leaf nodes under the root.
 function classes(root) {

@@ -46,11 +46,11 @@ namespace :publication do
 
     documents.each do |doc|
       article = Article.find_by_pub_med_id(doc[:id])
-      article.title = doc[:title]
+      article.title = doc[:title].byteslice(0, 250)
       article.date = doc[:date]
-      article.source = doc[:source]
-      article.url = doc[:url]
-      article.authors = doc[:authors]
+      article.source = doc[:source].byteslice(0, 250)
+      article.url = doc[:url].byteslice(0, 250)
+      article.authors = doc[:authors].byteslice(0, 250)
       article.save
     end
 
