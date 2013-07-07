@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20130707094114) do
     t.date     "date"
     t.string   "source"
     t.string   "url"
-    t.string   "auhtors"
+    t.string   "authors"
   end
 
   add_index "articles", ["citations_page_rank"], :name => "index_articles_on_citations_page_rank"

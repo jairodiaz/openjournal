@@ -4,6 +4,6 @@ class AddTitleDateSourceUrlDbAuthors < ActiveRecord::Migration
      add_column :articles, :date, :date
      add_column :articles, :source, :string
      add_column :articles, :url, :string
-     add_column :articles, :auhtors, :string
+     add_column :articles, :authors, :string
   end
 end
