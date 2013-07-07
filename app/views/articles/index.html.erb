@@ -1,25 +1,28 @@
-<h1>Listing articles</h1>
+<h1>Page Rank for Open Access Documents for Medecine</h1>
 
-<table>
-  <tr>
-    <th>Pub med</th>
-    <th>Citations page rank</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.pub_med_id %></td>
-    <td><%= article.citations_page_rank %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div id='svg'>
+  <iframe src="/display" style="height: 960px, width: 640px">
+  </iframe>
+</div>
 
-<br />
+<div id='table' style="display: block; position: absolute; top: 78px; left: 629px; width: 388px; height: 458px; z-index: 2; background-image: none; background-position: initial initial; background-repeat: initial initial;">
+  <h2> List of documents </h2>
+  <br />
+  <table>
+    <tr>
+      <th>Publication ID</th>
+      <th>PageRank</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<%= link_to 'New Article', new_article_path %>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.pub_med_id %></td>
+      <td><%= article.citations_page_rank %></td>
+    </tr>
+  <% end %>
+  </table>
+</div>
