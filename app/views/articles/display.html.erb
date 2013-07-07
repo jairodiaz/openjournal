@@ -9,6 +9,7 @@ text {
 </style>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="/assets/rainbowvis.js"></script>
 <script>
 
 var diameter = 640,
@@ -25,6 +26,28 @@ var svg = d3.select("body").append("svg")
     .attr("height", diameter)
     .attr("class", "bubble");
 
+function create_gradient_color() {
+  var numberOfItems = 30;
+  var rainbow = new Rainbow();
+  rainbow.setNumberRange(1, numberOfItems);
+  rainbow.setSpectrum('green', 'yellow');
+  var s = [];
+  for (var i = 1; i <= numberOfItems; i++) {
+      var hexColour = rainbow.colourAt(i);
+      s.push('#' + hexColour);
+  }
+  return s;
+}
+
+var gradient_colors = create_gradient_color();
+console.log(gradient_colors);
+
+function choose_color() {
+  color = gradient_colors.pop();
+  console.log(color);
+  return color;
+}
+
 d3.json("displayjson", function(error, root) {
   var node = svg.selectAll(".node")
       .data(bubble.nodes(classes(root))
@@ -38,7 +61,7 @@ d3.json("displayjson", function(error, root) {
 
   node.append("circle")
       .attr("r", function(d) { return d.r; })
-      .style("fill", function(d) { return color(d.value); });
+      .style("fill", function(d) { return d.color; });
 
   node.append("text")
       .attr("dy", ".3em")
@@ -46,21 +69,13 @@ d3.json("displayjson", function(error, root) {
       .text(function(d) { return d.className.substring(0, d.r / 3); });
 });
 
-function choose_red(value) {
-  color_red = value / 66;
-  if (color_red > 255) {
-    color_red = 255
-  }
-  d3.rgb(color_red, 0, 0)
-}
-
 // Returns a flattened hierarchy containing all leaf nodes under the root.
 function classes(root) {
   var classes = [];
 
   function recurse(name, node) {
     if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
-    else classes.push({packageName: node.name, className: node.name, value: node.size});
+    else classes.push({packageName: node.name, className: node.name, value: node.size, color: choose_color() });
   }
 
   recurse(null, root);
