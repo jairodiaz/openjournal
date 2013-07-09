@@ -17,11 +17,10 @@ in the center and represented with bigger circles and lighter colors.
    The test file is located at:
    ./test/fixtures/page_rank_test_data.txt
 
-   This file has three colums separated with tabs.
-   <PUB MED IDENTIFICATION> <PAGE RANK RATING> <LIST OF CITATIONS>
+   This file has three colums separated with tabs: <PUB MED IDENTIFICATION> <PAGE RANK RATING> <LIST OF CITATIONS>
 
 2. Setting the database:
 
    To setup the database two rake tasks are required:
-   rake publication:import        => Reads the test file into the database.
-   rake publication:retrieve_data => Retrieves document information (title, date, authors) from PubMed.
+   Rake publication:import        => Reads the test file into the database.
+   Rake publication:retrieve_data => Retrieves document information (title, date, authors) from PubMed.
